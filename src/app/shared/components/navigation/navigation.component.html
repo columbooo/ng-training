@@ -17,6 +17,9 @@
         <li [routerLinkActive]="['active']">
           <a [routerLink]="['/task/list']">Tasks</a>
         </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/task/charts']">Charts</a>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="!authService.user" [routerLinkActive]="['active']">

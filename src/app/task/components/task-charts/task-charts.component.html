@@ -1,0 +1,71 @@
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+    aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li (click)="selectDiagram(1)"><a>Diagram 1</a></li>
+    <li (click)="selectDiagram(2)"><a>Diagram 2</a></li>
+    <li (click)="selectDiagram(3)"><a>Diagram 3</a></li>
+    <li (click)="selectDiagram(4)"><a>Diagram 4</a></li>
+  </ul>
+</div>
+
+
+<div *ngIf="!loading && isVisible(1)">
+  <h4>The following diagram shows the number of tasks grouped by difficulty.</h4>
+  <ngx-charts-bar-vertical class="teszt" [view]="view" [scheme]="colorScheme" [results]="_diagram1Model" [gradient]="gradient"
+    [xAxis]="true" [yAxis]="true" [legend]="false" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxisLabel]="'Task Difficulty'"
+    [yAxisLabel]="'Task Count'" (select)="onSelect($event)">
+  </ngx-charts-bar-vertical>
+</div>
+
+<div *ngIf="!loading && isVisible(2)">
+  <h4>The following diagram is similar to Diagram 1 but in a pie chart.</h4>
+  <ngx-charts-pie-chart class="teszt" [view]="view" [scheme]="colorScheme" [results]="_diagram1Model" [legend]="false" [explodeSlices]="false"
+    [labels]="true" [doughnut]="doughnut" [gradient]="false" (select)="onSelect($event)">
+  </ngx-charts-pie-chart>
+</div>
+
+<div *ngIf="!loading && isVisible(3)">
+  <h4>The following diagram shows information about the goodness of the estimation. As the estimation getting more precise the
+    diagram will be flatter.</h4>
+  <input type="checkbox" [(ngModel)]="diagram3OptionShowAllTask" (change)="toggleAllTaskVisibilityOnDiagram3($event)">Show
+  all task
+  <ngx-charts-line-chart [curve]="curve" [view]="view" [scheme]="colorScheme" [results]="_diagram3Model" [gradient]="false"
+    [xAxis]="true" [yAxis]="true" [legend]="false" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxisLabel]="'Task Name'"
+    [yAxisLabel]="'Task Energy per Hour'" [autoScale]="autoScale" (select)="onSelect($event)">
+  </ngx-charts-line-chart>
+</div>
+
+<div *ngIf="!loading && isVisible(4)">
+  <h4>The following diagram shows the number of tasks grouped by difficulty.</h4>
+  <ngx-charts-bar-vertical class="teszt" [view]="view" [scheme]="colorScheme" [results]="_diagram4Model" [gradient]="gradient"
+    [xAxis]="true" [yAxis]="true" [legend]="false" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxisLabel]="'Group Name'"
+    [yAxisLabel]="'Sum Estimation in Point'" (select)="onSelect($event)">
+  </ngx-charts-bar-vertical>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        {{currentInfo}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

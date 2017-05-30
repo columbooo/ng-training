@@ -1,0 +1,11 @@
+.teszt {
+    display: inline-block;
+}
+
+.teszt .chart-legend {
+    width: 500px;
+}
+
+.dropdown-menu a {
+    cursor: pointer;
+}
