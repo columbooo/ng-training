@@ -40,32 +40,9 @@
 </div>
 
 <div *ngIf="!loading && isVisible(4)">
-  <h4>The following diagram shows the number of tasks grouped by difficulty.</h4>
+  <h4>The following diagram shows the sum estimation grouped by groups.</h4>
   <ngx-charts-bar-vertical class="teszt" [view]="view" [scheme]="colorScheme" [results]="_diagram4Model" [gradient]="gradient"
     [xAxis]="true" [yAxis]="true" [legend]="false" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxisLabel]="'Group Name'"
     [yAxisLabel]="'Sum Estimation in Point'" (select)="onSelect($event)">
   </ngx-charts-bar-vertical>
-</div>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        {{currentInfo}}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
 </div>
