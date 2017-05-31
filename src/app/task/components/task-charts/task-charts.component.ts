@@ -81,13 +81,14 @@ export class TaskChartsComponent implements OnInit {
       maps3.set(entry.name, dElement);
 
       // Diagram 4
-      let group = maps4.get(entry.color.toString())
+      let groupName =  entry.color == undefined ? "Without group" : entry.color.toString()
+      let group = maps4.get(groupName)
       if (group == undefined) {
         let diagramElement = {
-          name: entry.color.toString(),
+          name: groupName,
           value: entry.position
         }
-        maps4.set(entry.color.toString(), diagramElement);
+        maps4.set(groupName, diagramElement);
       } else {
         group.value += entry.position;
       }
